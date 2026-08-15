@@ -16,6 +16,7 @@ Simulador de un procesador MIPS con pipeline de 5 etapas (**IF, ID, EX, MEM, WB*
 ```bash
 gcc -Wall -std=c99 main.c mips_sim.c -o mips_sim
 
+```
 ### 2. Ejecutar Unit tests y system test
 ./mips_sim
 
