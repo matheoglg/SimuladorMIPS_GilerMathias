@@ -1,0 +1,11 @@
+<map id="MIPS_State" name="MIPS_State">
+<area shape="rect" id="Node000001" title=" " alt="" coords="236,93,331,119"/>
+<area shape="rect" id="Node000002" href="$structIF__ID__Register.html" title=" " alt="" coords="5,5,121,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,33,255,91,253,96,105,38"/>
+<area shape="rect" id="Node000003" href="$structID__EX__Register.html" title=" " alt="" coords="145,5,267,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,39,275,91,271,95,224,43"/>
+<area shape="rect" id="Node000004" href="$structEX__MEM__Register.html" title=" " alt="" coords="291,5,430,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="343,43,296,95,292,91,339,39"/>
+<area shape="rect" id="Node000005" href="$structMEM__WB__Register.html" title=" " alt="" coords="454,5,598,31"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="485,38,394,72,321,96,319,91,392,67,483,33"/>
+</map>

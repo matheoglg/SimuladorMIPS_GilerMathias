@@ -1,0 +1,120 @@
+\doxysection{mips\+\_\+sim.\+h}
+\hypertarget{mips__sim_8h_source}{}\label{mips__sim_8h_source}\mbox{\hyperlink{mips__sim_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MIPS\_SIM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MIPS\_SIM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ NUM\_REGS\ 32}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MEM\_SIZE\_WORDS\ 1024\ }\textcolor{comment}{//\ Capacidad\ de\ memoria\ expressada\ en\ palabras\ de\ 32\ bits}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*\ -\/-\/-\/\ REGISTROS\ INTER-\/ETAPAS\ DEL\ PIPELINE\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Latch\ entre\ Fetch\ e\ Instruction\ Decode}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structIF__ID__Register_aaa2bf9082b57a0450de25ec130c62c65}{pc}};}
+\DoxyCodeLine{00019\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structIF__ID__Register_a77a5f0fd9fe1b482e9b38d9ef2aaf6f3}{instruction}};}
+\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{structIF__ID__Register}{IF\_ID\_Register}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Latch\ entre\ Instruction\ Decode\ y\ Execute\ (propaga\ operandos\ y\ señales\ de\ control)}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structID__EX__Register_a91b4177b6891c746a8fa1e1b18959cf4}{pc\_plus\_4}};}
+\DoxyCodeLine{00025\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structID__EX__Register_a939f48c39b83cc2565b0980022c54613}{read\_data\_1}};}
+\DoxyCodeLine{00026\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structID__EX__Register_a44104ff10e77a35917dd23f9237b5178}{read\_data\_2}};}
+\DoxyCodeLine{00027\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structID__EX__Register_a70f0a38f9b99b5404250708296ff2bb7}{imm\_extended}};}
+\DoxyCodeLine{00028\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structID__EX__Register_a979ab2a06d0f82e2a2bcf93a15c2ddc9}{rs}};}
+\DoxyCodeLine{00029\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structID__EX__Register_a55bae507c33a6096dfa6a1ce71a91e9d}{rt}};}
+\DoxyCodeLine{00030\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structID__EX__Register_a5f82893271d5db7f467fb766115ee425}{rd}};}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Señales\ de\ Control\ para\ las\ etapas\ EX,\ MEM\ y\ WB}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a9a43b1b76199c5766a81882abbca44dc}{reg\_dst}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Selección\ del\ registro\ destino\ (rt\ vs\ rd)}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a2fed71b576e9f6e05ab9de2087afa819}{alu\_src}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Selección\ del\ segundo\ operando\ de\ la\ ALU\ (rt\ vs\ Inmediato)}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a45ea5a89c7517aaaec611fa86b077403}{mem\_to\_reg}};\ \ \ \ \ \textcolor{comment}{//\ Selección\ del\ dato\ a\ escribir\ en\ RF\ (ALU\ vs\ Memoria)}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_abb875e3caca947048e719d83e0424c35}{reg\_write}};\ \ \ \ \ \ \textcolor{comment}{//\ Habilitación\ de\ escritura\ en\ banco\ de\ registros}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a5418013a3df67dc35c766f62a4aef4ae}{mem\_read}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Lectura\ en\ memoria\ de\ datos}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a2e6a9e73fbcc1f6bead0d8303203baf7}{mem\_write}};\ \ \ \ \ \ \textcolor{comment}{//\ Escritura\ en\ memoria\ de\ datos}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_ae9d23c102b93452778d0da2142454d63}{branch}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Control\ de\ salto\ condicional\ (BEQ)}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a63b8dd13030828258b863ecd6e106c2f}{bne}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Control\ de\ salto\ condicional\ (BNE)}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_a3364a49694f0656e7e338f6348f4d513}{jump}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Control\ de\ salto\ incondicional}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structID__EX__Register_aab83106fb04d97ddd3ae9b67488697e6}{jr}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Control\ de\ salto\ a\ registro}}
+\DoxyCodeLine{00043\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structID__EX__Register_add60d49f767d6cfe7c92b25e898d275f}{alu\_op}};\ \ \ \ \ \ \textcolor{comment}{//\ Operación\ a\ ejecutar\ por\ la\ ALU}}
+\DoxyCodeLine{00044\ \}\ \mbox{\hyperlink{structID__EX__Register}{ID\_EX\_Register}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ Latch\ entre\ Execute\ y\ Memory\ Access}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structEX__MEM__Register_abf9e9b85be4baaa3771b60f2a0100eee}{alu\_result}};}
+\DoxyCodeLine{00049\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structEX__MEM__Register_a4fc4eaa00f58949afbc8821b8ebba940}{write\_data\_mem}};\ \textcolor{comment}{//\ Dato\ a\ escribir\ en\ SW}}
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structEX__MEM__Register_a772ffeaf549615dbe6d7885fe3efa600}{write\_reg}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Índice\ del\ registro\ destino\ final}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structEX__MEM__Register_a9d9641162f139599a88b7e0e9c9e4636}{zero}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bandera\ Zero\ de\ la\ ALU}}
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Señales\ de\ Control\ propagadas\ para\ MEM\ y\ WB}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structEX__MEM__Register_a0c6b7b4781dd8f92ccbf6ad90fa1da83}{mem\_to\_reg}};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structEX__MEM__Register_a0738ca22b1bd10ca17f6a024a0739b43}{reg\_write}};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structEX__MEM__Register_aee3e9ca76e2fcd2b352f255b6d7a396e}{mem\_read}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structEX__MEM__Register_a913a742e2a7d3c3ac9b22feb819180a8}{mem\_write}};}
+\DoxyCodeLine{00058\ \}\ \mbox{\hyperlink{structEX__MEM__Register}{EX\_MEM\_Register}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ Latch\ entre\ Memory\ Access\ y\ Write\ Back}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structMEM__WB__Register_aa16cd80e31b6416f6c6d0a93c5dc5b76}{alu\_result}};}
+\DoxyCodeLine{00063\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structMEM__WB__Register_aa750034756e48b05061d86b3aa7c3fac}{mem\_read\_data}};\ \ \textcolor{comment}{//\ Dato\ leído\ desde\ memoria\ (LW)}}
+\DoxyCodeLine{00064\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structMEM__WB__Register_af4e18f3cd75316ebd057abcca3329e91}{write\_reg}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Índice\ del\ registro\ destino\ final}}
+\DoxyCodeLine{00065\ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Señales\ de\ Control\ propagadas\ para\ WB}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structMEM__WB__Register_a1c261fc9c7fd142b0023cb3365a137c4}{mem\_to\_reg}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structMEM__WB__Register_a154b14123cb0717251ed2eb7dd879a5d}{reg\_write}};}
+\DoxyCodeLine{00069\ \}\ \mbox{\hyperlink{structMEM__WB__Register}{MEM\_WB\_Register}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/*\ -\/-\/-\/\ ESTADO\ GLOBAL\ DE\ LA\ CPU\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00074\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structMIPS__State_a7ffa4430e848cb5c5780cd0bbdd6919b}{pc}};}
+\DoxyCodeLine{00075\ \ \ \ \ uint32\_t\ registers[\mbox{\hyperlink{mips__sim_8h_a50ea53d10916f14f7298e6371ec9ef78}{NUM\_REGS}}];}
+\DoxyCodeLine{00076\ \ \ \ \ uint32\_t\ inst\_mem[\mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\_SIZE\_WORDS}}];\ \textcolor{comment}{//\ Memoria\ de\ Instrucciones}}
+\DoxyCodeLine{00077\ \ \ \ \ uint32\_t\ data\_mem[\mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\_SIZE\_WORDS}}];\ \textcolor{comment}{//\ Memoria\ de\ Datos}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Registros\ inter-\/etapa\ del\ pipeline}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structIF__ID__Register}{IF\_ID\_Register}}\ \mbox{\hyperlink{structMIPS__State_a204bc32956cb023c4582f0828e983a9f}{if\_id}};}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{structID__EX__Register}{ID\_EX\_Register}}\ \mbox{\hyperlink{structMIPS__State_a44d3d22347ce5b19a61f5c43c1ff9ea8}{id\_ex}};}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{structEX__MEM__Register}{EX\_MEM\_Register}}\ \mbox{\hyperlink{structMIPS__State_a4554ce672dc6d42cf6f17cce0c5225d1}{ex\_mem}};}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{structMEM__WB__Register}{MEM\_WB\_Register}}\ \mbox{\hyperlink{structMIPS__State_a18b00388907b115955a8314f755b1b47}{mem\_wb}};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Control\ de\ Hazards\ y\ Reenvío}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structMIPS__State_a5d1624fe6eb9159a80166582eada62ba}{stall}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inyección\ de\ burbuja\ por\ Load-\/Use\ Hazard}}
+\DoxyCodeLine{00087\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structMIPS__State_a9347e72ca7071aec3ac0585aec965b8b}{forward\_a}};\ \ \ \textcolor{comment}{//\ Selectores\ MUX\ de\ forwarding\ para\ operando\ A\ (00:\ RF,\ 10:\ EX/MEM,\ 01:\ MEM/WB)}}
+\DoxyCodeLine{00088\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structMIPS__State_aa6a673c39e718ca2aacc7aa898f6e37b}{forward\_b}};\ \ \ \textcolor{comment}{//\ Selectores\ MUX\ de\ forwarding\ para\ operando\ B}}
+\DoxyCodeLine{00089\ \}\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{/*\ -\/-\/-\/\ PROTOTIPOS\ DE\ LAS\ ETAPAS\ DEL\ PIPELINE\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_af84a220c9f282d30dceccd1acaf64692}{stage\_fetch}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state,\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *next);}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_a4e637e24c4ba391f104137b301dfa9eb}{stage\_decode}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state,\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *next);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_a270ee2ee5c9737f0b34e11970ab4442a}{stage\_execute}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state,\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *next);}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_a4fffc0df336e30ee4dda2b133548b982}{stage\_memory}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state,\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *next);}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_ae63df5bed4dfc346d63d7bce985ed1cc}{stage\_writeback}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state,\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *next);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{/*\ -\/-\/-\/\ UNIDADES\ DE\ CONTROL\ DE\ HAZARDS\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_a5be7b8fa32c05dd37824270cdfcb28f4}{hazard\_detection\_unit}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_acbb1896499e6b720fc8a9e19376595f1}{forwarding\_unit}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{comment}{/*\ -\/-\/-\/\ FUNCIONES\ AUXILIARES\ Y\ DE\ SISTEMA\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_ad4fee2c852a1d415f4e6ab236de1b702}{mips\_init}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state);}
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{mips__sim_8h_abe8a8bed457d09e1bc7b0717ccf01b28}{load\_program\_from\_binary\_txt}}(\mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_a0be09c341bf20fe7884284a90f92a044}{print\_mips\_state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMIPS__State}{MIPS\_State}}\ *state);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{/*\ -\/-\/-\/\ SUITE\ DE\ PRUEBAS\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_a06df34b043f9108378f4be37df7dda3a}{run\_unit\_tests}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mips__sim_8h_ae9fb3f26241c305f7a77fd095dc8106a}{run\_system\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MIPS\_SIM\_H}}
+
+\end{DoxyCode}

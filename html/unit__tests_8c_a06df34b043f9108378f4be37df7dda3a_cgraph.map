@@ -1,0 +1,16 @@
+<map id="run_unit_tests" name="run_unit_tests">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,110,120,135"/>
+<area shape="rect" id="Node000002" href="$mips__sim_8c.html#acbb1896499e6b720fc8a9e19376595f1" title=" " alt="" coords="383,59,507,84"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,108,108,62,135,38,167,20,212,6,250,3,288,9,335,20,376,33,411,50,409,55,374,38,334,25,287,14,250,9,213,11,169,25,138,42,111,66,74,111"/>
+<area shape="rect" id="Node000003" href="$mips__sim_8c.html#a5be7b8fa32c05dd37824270cdfcb28f4" title=" " alt="" coords="168,35,335,60"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,107,167,69,187,62,189,67,169,74,89,112"/>
+<area shape="rect" id="Node000004" href="$mips__sim_8c.html#ad4fee2c852a1d415f4e6ab236de1b702" title=" " alt="" coords="210,84,293,110"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,112,196,102,197,107,121,117"/>
+<area shape="rect" id="Node000005" href="$mips__sim_8c.html#a270ee2ee5c9737f0b34e11970ab4442a" title=" " alt="" coords="193,134,309,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="121,127,180,135,180,140,120,132"/>
+<area shape="rect" id="Node000006" href="$mips__sim_8c.html#a4fffc0df336e30ee4dda2b133548b982" title=" " alt="" coords="191,183,311,208"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="90,133,169,168,193,176,191,181,167,173,88,138"/>
+<area shape="rect" id="Node000007" href="$mips__sim_8c.html#ae63df5bed4dfc346d63d7bce985ed1cc" title=" " alt="" coords="187,232,316,258"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="76,133,114,175,141,198,169,217,185,225,182,230,167,222,137,202,111,178,72,137"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="297,131,334,119,405,88,407,93,336,123,299,136"/>
+</map>

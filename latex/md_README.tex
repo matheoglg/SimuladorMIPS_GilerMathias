@@ -1,0 +1,20 @@
+\chapter{Simulador MIPS de 5 Etapas en C}
+\hypertarget{md_README}{}\label{md_README}\index{Simulador MIPS de 5 Etapas en C@{Simulador MIPS de 5 Etapas en C}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ Simulador de un procesador MIPS con pipeline de 5 etapas ({\bfseries{IF, ID, EX, MEM, WB}}), implementación de {\bfseries{Forwarding Unit}} para resolución de Hazards de Datos y {\bfseries{Hazard Detection Unit}} para puestos (stalls) por Load-\/\+Use.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Requisitos}{Requisitos}}\label{md_README_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Compilador de C ({\ttfamily gcc} recomendado).
+\item {\ttfamily make} (opcional).
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{Compilación y Ejecución}{Compilación y Ejecución}}\label{md_README_autotoc_md4}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{1. Compilación manual con GCC}{1. Compilación manual con GCC}}\label{md_README_autotoc_md5}
+\`{}\`{}\`{}bash gcc -\/Wall -\/std=c99 \doxylink{main_8c}{main.\+c} \doxylink{mips__sim_8c}{mips\+\_\+sim.\+c} -\/o mips\+\_\+sim\hypertarget{md_README_autotoc_md6}{}\doxysubsection{\texorpdfstring{2. Ejecutar Unit tests y system test}{2. Ejecutar Unit tests y system test}}\label{md_README_autotoc_md6}
+./mips\+\_\+sim\hypertarget{md_README_autotoc_md7}{}\doxysubsection{\texorpdfstring{3. Ejecutar un programa binario desde txt}{3. Ejecutar un programa binario desde txt}}\label{md_README_autotoc_md7}
+./mips\+\_\+sim program.\+txt 

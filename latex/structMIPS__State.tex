@@ -1,0 +1,115 @@
+\doxysection{MIPS\+\_\+\+State Struct Reference}
+\hypertarget{structMIPS__State}{}\label{structMIPS__State}\index{MIPS\_State@{MIPS\_State}}
+
+
+{\ttfamily \#include $<$mips\+\_\+sim.\+h$>$}
+
+
+
+Collaboration diagram for MIPS\+\_\+\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structMIPS__State__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structMIPS__State_a7ffa4430e848cb5c5780cd0bbdd6919b}{pc}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structMIPS__State_a58156a390bcda795100e0f3e479abe01}{registers}} \mbox{[}\mbox{\hyperlink{mips__sim_8h_a50ea53d10916f14f7298e6371ec9ef78}{NUM\+\_\+\+REGS}}\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structMIPS__State_a98be62424a9c2a48043561a7bc3a1741}{inst\+\_\+mem}} \mbox{[}\mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\+\_\+\+SIZE\+\_\+\+WORDS}}\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structMIPS__State_a3b2544df8a38338270e2071e6de5681d}{data\+\_\+mem}} \mbox{[}\mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\+\_\+\+SIZE\+\_\+\+WORDS}}\mbox{]}
+\item 
+\mbox{\hyperlink{structIF__ID__Register}{IF\+\_\+\+ID\+\_\+\+Register}} \mbox{\hyperlink{structMIPS__State_a204bc32956cb023c4582f0828e983a9f}{if\+\_\+id}}
+\item 
+\mbox{\hyperlink{structID__EX__Register}{ID\+\_\+\+EX\+\_\+\+Register}} \mbox{\hyperlink{structMIPS__State_a44d3d22347ce5b19a61f5c43c1ff9ea8}{id\+\_\+ex}}
+\item 
+\mbox{\hyperlink{structEX__MEM__Register}{EX\+\_\+\+MEM\+\_\+\+Register}} \mbox{\hyperlink{structMIPS__State_a4554ce672dc6d42cf6f17cce0c5225d1}{ex\+\_\+mem}}
+\item 
+\mbox{\hyperlink{structMEM__WB__Register}{MEM\+\_\+\+WB\+\_\+\+Register}} \mbox{\hyperlink{structMIPS__State_a18b00388907b115955a8314f755b1b47}{mem\+\_\+wb}}
+\item 
+bool \mbox{\hyperlink{structMIPS__State_a5d1624fe6eb9159a80166582eada62ba}{stall}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structMIPS__State_a9347e72ca7071aec3ac0585aec965b8b}{forward\+\_\+a}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structMIPS__State_aa6a673c39e718ca2aacc7aa898f6e37b}{forward\+\_\+b}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structMIPS__State_a3b2544df8a38338270e2071e6de5681d}\label{structMIPS__State_a3b2544df8a38338270e2071e6de5681d} 
+\index{MIPS\_State@{MIPS\_State}!data\_mem@{data\_mem}}
+\index{data\_mem@{data\_mem}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{data\_mem}{data\_mem}}
+{\footnotesize\ttfamily uint32\+\_\+t MIPS\+\_\+\+State\+::data\+\_\+mem\mbox{[}\mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\+\_\+\+SIZE\+\_\+\+WORDS}}\mbox{]}}
+
+\Hypertarget{structMIPS__State_a4554ce672dc6d42cf6f17cce0c5225d1}\label{structMIPS__State_a4554ce672dc6d42cf6f17cce0c5225d1} 
+\index{MIPS\_State@{MIPS\_State}!ex\_mem@{ex\_mem}}
+\index{ex\_mem@{ex\_mem}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{ex\_mem}{ex\_mem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEX__MEM__Register}{EX\+\_\+\+MEM\+\_\+\+Register}} MIPS\+\_\+\+State\+::ex\+\_\+mem}
+
+\Hypertarget{structMIPS__State_a9347e72ca7071aec3ac0585aec965b8b}\label{structMIPS__State_a9347e72ca7071aec3ac0585aec965b8b} 
+\index{MIPS\_State@{MIPS\_State}!forward\_a@{forward\_a}}
+\index{forward\_a@{forward\_a}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{forward\_a}{forward\_a}}
+{\footnotesize\ttfamily uint8\+\_\+t MIPS\+\_\+\+State\+::forward\+\_\+a}
+
+\Hypertarget{structMIPS__State_aa6a673c39e718ca2aacc7aa898f6e37b}\label{structMIPS__State_aa6a673c39e718ca2aacc7aa898f6e37b} 
+\index{MIPS\_State@{MIPS\_State}!forward\_b@{forward\_b}}
+\index{forward\_b@{forward\_b}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{forward\_b}{forward\_b}}
+{\footnotesize\ttfamily uint8\+\_\+t MIPS\+\_\+\+State\+::forward\+\_\+b}
+
+\Hypertarget{structMIPS__State_a44d3d22347ce5b19a61f5c43c1ff9ea8}\label{structMIPS__State_a44d3d22347ce5b19a61f5c43c1ff9ea8} 
+\index{MIPS\_State@{MIPS\_State}!id\_ex@{id\_ex}}
+\index{id\_ex@{id\_ex}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{id\_ex}{id\_ex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structID__EX__Register}{ID\+\_\+\+EX\+\_\+\+Register}} MIPS\+\_\+\+State\+::id\+\_\+ex}
+
+\Hypertarget{structMIPS__State_a204bc32956cb023c4582f0828e983a9f}\label{structMIPS__State_a204bc32956cb023c4582f0828e983a9f} 
+\index{MIPS\_State@{MIPS\_State}!if\_id@{if\_id}}
+\index{if\_id@{if\_id}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{if\_id}{if\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIF__ID__Register}{IF\+\_\+\+ID\+\_\+\+Register}} MIPS\+\_\+\+State\+::if\+\_\+id}
+
+\Hypertarget{structMIPS__State_a98be62424a9c2a48043561a7bc3a1741}\label{structMIPS__State_a98be62424a9c2a48043561a7bc3a1741} 
+\index{MIPS\_State@{MIPS\_State}!inst\_mem@{inst\_mem}}
+\index{inst\_mem@{inst\_mem}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{inst\_mem}{inst\_mem}}
+{\footnotesize\ttfamily uint32\+\_\+t MIPS\+\_\+\+State\+::inst\+\_\+mem\mbox{[}\mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\+\_\+\+SIZE\+\_\+\+WORDS}}\mbox{]}}
+
+\Hypertarget{structMIPS__State_a18b00388907b115955a8314f755b1b47}\label{structMIPS__State_a18b00388907b115955a8314f755b1b47} 
+\index{MIPS\_State@{MIPS\_State}!mem\_wb@{mem\_wb}}
+\index{mem\_wb@{mem\_wb}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{mem\_wb}{mem\_wb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMEM__WB__Register}{MEM\+\_\+\+WB\+\_\+\+Register}} MIPS\+\_\+\+State\+::mem\+\_\+wb}
+
+\Hypertarget{structMIPS__State_a7ffa4430e848cb5c5780cd0bbdd6919b}\label{structMIPS__State_a7ffa4430e848cb5c5780cd0bbdd6919b} 
+\index{MIPS\_State@{MIPS\_State}!pc@{pc}}
+\index{pc@{pc}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{pc}{pc}}
+{\footnotesize\ttfamily uint32\+\_\+t MIPS\+\_\+\+State\+::pc}
+
+\Hypertarget{structMIPS__State_a58156a390bcda795100e0f3e479abe01}\label{structMIPS__State_a58156a390bcda795100e0f3e479abe01} 
+\index{MIPS\_State@{MIPS\_State}!registers@{registers}}
+\index{registers@{registers}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{registers}{registers}}
+{\footnotesize\ttfamily uint32\+\_\+t MIPS\+\_\+\+State\+::registers\mbox{[}\mbox{\hyperlink{mips__sim_8h_a50ea53d10916f14f7298e6371ec9ef78}{NUM\+\_\+\+REGS}}\mbox{]}}
+
+\Hypertarget{structMIPS__State_a5d1624fe6eb9159a80166582eada62ba}\label{structMIPS__State_a5d1624fe6eb9159a80166582eada62ba} 
+\index{MIPS\_State@{MIPS\_State}!stall@{stall}}
+\index{stall@{stall}!MIPS\_State@{MIPS\_State}}
+\doxysubsubsection{\texorpdfstring{stall}{stall}}
+{\footnotesize\ttfamily bool MIPS\+\_\+\+State\+::stall}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mips__sim_8h}{mips\+\_\+sim.\+h}}\end{DoxyCompactItemize}

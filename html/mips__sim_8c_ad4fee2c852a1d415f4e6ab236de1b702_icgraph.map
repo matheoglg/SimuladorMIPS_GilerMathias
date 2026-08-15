@@ -1,0 +1,11 @@
+<map id="mips_init" name="mips_init">
+<area shape="rect" id="Node000001" title=" " alt="" coords="287,25,369,50"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,25,60,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,24,238,15,173,8,109,15,61,29,59,24,107,10,173,3,239,9,279,18"/>
+<area shape="rect" id="Node000003" href="$unit__tests_8c.html#ae9fb3f26241c305f7a77fd095dc8106a" title=" " alt="" coords="108,25,239,50"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,40,239,40,239,35,273,35"/>
+<area shape="rect" id="Node000004" href="$unit__tests_8c.html#a06df34b043f9108378f4be37df7dda3a" title=" " alt="" coords="116,74,231,99"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="275,57,215,76,213,71,274,52"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="94,40,60,40,60,35,94,35"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="123,72,59,49,61,44,125,67"/>
+</map>

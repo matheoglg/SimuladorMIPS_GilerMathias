@@ -1,0 +1,289 @@
+\doxysection{mips\+\_\+sim.\+h File Reference}
+\hypertarget{mips__sim_8h}{}\label{mips__sim_8h}\index{mips\_sim.h@{mips\_sim.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for mips\+\_\+sim.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{mips__sim_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIF__ID__Register}{IF\+\_\+\+ID\+\_\+\+Register}}
+\item 
+struct \mbox{\hyperlink{structID__EX__Register}{ID\+\_\+\+EX\+\_\+\+Register}}
+\item 
+struct \mbox{\hyperlink{structEX__MEM__Register}{EX\+\_\+\+MEM\+\_\+\+Register}}
+\item 
+struct \mbox{\hyperlink{structMEM__WB__Register}{MEM\+\_\+\+WB\+\_\+\+Register}}
+\item 
+struct \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mips__sim_8h_a50ea53d10916f14f7298e6371ec9ef78}{NUM\+\_\+\+REGS}}~32
+\item 
+\#define \mbox{\hyperlink{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}{MEM\+\_\+\+SIZE\+\_\+\+WORDS}}~1024
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mips__sim_8h_af84a220c9f282d30dceccd1acaf64692}{stage\+\_\+fetch}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}next)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_a4e637e24c4ba391f104137b301dfa9eb}{stage\+\_\+decode}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}next)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_a270ee2ee5c9737f0b34e11970ab4442a}{stage\+\_\+execute}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}next)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_a4fffc0df336e30ee4dda2b133548b982}{stage\+\_\+memory}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}next)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_ae63df5bed4dfc346d63d7bce985ed1cc}{stage\+\_\+writeback}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}next)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_a5be7b8fa32c05dd37824270cdfcb28f4}{hazard\+\_\+detection\+\_\+unit}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_acbb1896499e6b720fc8a9e19376595f1}{forwarding\+\_\+unit}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_ad4fee2c852a1d415f4e6ab236de1b702}{mips\+\_\+init}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state)
+\item 
+bool \mbox{\hyperlink{mips__sim_8h_abe8a8bed457d09e1bc7b0717ccf01b28}{load\+\_\+program\+\_\+from\+\_\+binary\+\_\+txt}} (\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, const char \texorpdfstring{$\ast$}{*}filename)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_a0be09c341bf20fe7884284a90f92a044}{print\+\_\+mips\+\_\+state}} (const \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_a06df34b043f9108378f4be37df7dda3a}{run\+\_\+unit\+\_\+tests}} (void)
+\item 
+void \mbox{\hyperlink{mips__sim_8h_ae9fb3f26241c305f7a77fd095dc8106a}{run\+\_\+system\+\_\+test}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216}\label{mips__sim_8h_aa42ec2e52727299a8764c1f2b5216216} 
+\index{mips\_sim.h@{mips\_sim.h}!MEM\_SIZE\_WORDS@{MEM\_SIZE\_WORDS}}
+\index{MEM\_SIZE\_WORDS@{MEM\_SIZE\_WORDS}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_SIZE\_WORDS}{MEM\_SIZE\_WORDS}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+SIZE\+\_\+\+WORDS~1024}
+
+\Hypertarget{mips__sim_8h_a50ea53d10916f14f7298e6371ec9ef78}\label{mips__sim_8h_a50ea53d10916f14f7298e6371ec9ef78} 
+\index{mips\_sim.h@{mips\_sim.h}!NUM\_REGS@{NUM\_REGS}}
+\index{NUM\_REGS@{NUM\_REGS}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_REGS}{NUM\_REGS}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+REGS~32}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mips__sim_8h_acbb1896499e6b720fc8a9e19376595f1}\label{mips__sim_8h_acbb1896499e6b720fc8a9e19376595f1} 
+\index{mips\_sim.h@{mips\_sim.h}!forwarding\_unit@{forwarding\_unit}}
+\index{forwarding\_unit@{forwarding\_unit}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{forwarding\_unit()}{forwarding\_unit()}}
+{\footnotesize\ttfamily void forwarding\+\_\+unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_acbb1896499e6b720fc8a9e19376595f1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_a5be7b8fa32c05dd37824270cdfcb28f4}\label{mips__sim_8h_a5be7b8fa32c05dd37824270cdfcb28f4} 
+\index{mips\_sim.h@{mips\_sim.h}!hazard\_detection\_unit@{hazard\_detection\_unit}}
+\index{hazard\_detection\_unit@{hazard\_detection\_unit}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{hazard\_detection\_unit()}{hazard\_detection\_unit()}}
+{\footnotesize\ttfamily void hazard\+\_\+detection\+\_\+unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_a5be7b8fa32c05dd37824270cdfcb28f4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_abe8a8bed457d09e1bc7b0717ccf01b28}\label{mips__sim_8h_abe8a8bed457d09e1bc7b0717ccf01b28} 
+\index{mips\_sim.h@{mips\_sim.h}!load\_program\_from\_binary\_txt@{load\_program\_from\_binary\_txt}}
+\index{load\_program\_from\_binary\_txt@{load\_program\_from\_binary\_txt}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{load\_program\_from\_binary\_txt()}{load\_program\_from\_binary\_txt()}}
+{\footnotesize\ttfamily bool load\+\_\+program\+\_\+from\+\_\+binary\+\_\+txt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{mips__sim_8h_abe8a8bed457d09e1bc7b0717ccf01b28_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_ad4fee2c852a1d415f4e6ab236de1b702}\label{mips__sim_8h_ad4fee2c852a1d415f4e6ab236de1b702} 
+\index{mips\_sim.h@{mips\_sim.h}!mips\_init@{mips\_init}}
+\index{mips\_init@{mips\_init}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{mips\_init()}{mips\_init()}}
+{\footnotesize\ttfamily void mips\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_ad4fee2c852a1d415f4e6ab236de1b702_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_a0be09c341bf20fe7884284a90f92a044}\label{mips__sim_8h_a0be09c341bf20fe7884284a90f92a044} 
+\index{mips\_sim.h@{mips\_sim.h}!print\_mips\_state@{print\_mips\_state}}
+\index{print\_mips\_state@{print\_mips\_state}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{print\_mips\_state()}{print\_mips\_state()}}
+{\footnotesize\ttfamily void print\+\_\+mips\+\_\+state (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{mips__sim_8h_a0be09c341bf20fe7884284a90f92a044_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_ae9fb3f26241c305f7a77fd095dc8106a}\label{mips__sim_8h_ae9fb3f26241c305f7a77fd095dc8106a} 
+\index{mips\_sim.h@{mips\_sim.h}!run\_system\_test@{run\_system\_test}}
+\index{run\_system\_test@{run\_system\_test}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{run\_system\_test()}{run\_system\_test()}}
+{\footnotesize\ttfamily void run\+\_\+system\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_ae9fb3f26241c305f7a77fd095dc8106a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{mips__sim_8h_ae9fb3f26241c305f7a77fd095dc8106a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_a06df34b043f9108378f4be37df7dda3a}\label{mips__sim_8h_a06df34b043f9108378f4be37df7dda3a} 
+\index{mips\_sim.h@{mips\_sim.h}!run\_unit\_tests@{run\_unit\_tests}}
+\index{run\_unit\_tests@{run\_unit\_tests}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{run\_unit\_tests()}{run\_unit\_tests()}}
+{\footnotesize\ttfamily void run\+\_\+unit\+\_\+tests (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_a06df34b043f9108378f4be37df7dda3a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{mips__sim_8h_a06df34b043f9108378f4be37df7dda3a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_a4e637e24c4ba391f104137b301dfa9eb}\label{mips__sim_8h_a4e637e24c4ba391f104137b301dfa9eb} 
+\index{mips\_sim.h@{mips\_sim.h}!stage\_decode@{stage\_decode}}
+\index{stage\_decode@{stage\_decode}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{stage\_decode()}{stage\_decode()}}
+{\footnotesize\ttfamily void stage\+\_\+decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{next }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{mips__sim_8h_a4e637e24c4ba391f104137b301dfa9eb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_a4e637e24c4ba391f104137b301dfa9eb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_a270ee2ee5c9737f0b34e11970ab4442a}\label{mips__sim_8h_a270ee2ee5c9737f0b34e11970ab4442a} 
+\index{mips\_sim.h@{mips\_sim.h}!stage\_execute@{stage\_execute}}
+\index{stage\_execute@{stage\_execute}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{stage\_execute()}{stage\_execute()}}
+{\footnotesize\ttfamily void stage\+\_\+execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{next }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{mips__sim_8h_a270ee2ee5c9737f0b34e11970ab4442a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_a270ee2ee5c9737f0b34e11970ab4442a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_af84a220c9f282d30dceccd1acaf64692}\label{mips__sim_8h_af84a220c9f282d30dceccd1acaf64692} 
+\index{mips\_sim.h@{mips\_sim.h}!stage\_fetch@{stage\_fetch}}
+\index{stage\_fetch@{stage\_fetch}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{stage\_fetch()}{stage\_fetch()}}
+{\footnotesize\ttfamily void stage\+\_\+fetch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{next }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_af84a220c9f282d30dceccd1acaf64692_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_a4fffc0df336e30ee4dda2b133548b982}\label{mips__sim_8h_a4fffc0df336e30ee4dda2b133548b982} 
+\index{mips\_sim.h@{mips\_sim.h}!stage\_memory@{stage\_memory}}
+\index{stage\_memory@{stage\_memory}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{stage\_memory()}{stage\_memory()}}
+{\footnotesize\ttfamily void stage\+\_\+memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{next }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_a4fffc0df336e30ee4dda2b133548b982_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mips__sim_8h_ae63df5bed4dfc346d63d7bce985ed1cc}\label{mips__sim_8h_ae63df5bed4dfc346d63d7bce985ed1cc} 
+\index{mips\_sim.h@{mips\_sim.h}!stage\_writeback@{stage\_writeback}}
+\index{stage\_writeback@{stage\_writeback}!mips\_sim.h@{mips\_sim.h}}
+\doxysubsubsection{\texorpdfstring{stage\_writeback()}{stage\_writeback()}}
+{\footnotesize\ttfamily void stage\+\_\+writeback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{\mbox{\hyperlink{structMIPS__State}{MIPS\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{next }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mips__sim_8h_ae63df5bed4dfc346d63d7bce985ed1cc_icgraph}
+\end{center}
+\end{figure}
