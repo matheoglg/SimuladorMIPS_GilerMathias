@@ -1,36 +1,40 @@
 #include "mips_sim.h"
 
 int main(int argc, char *argv[]) {
-    printf("===========================================\n");
-    printf(" SIMULADOR MIPS 5 ETAPAS (PIPELINED IN C)  \n");
-    printf("===========================================\n\n");
+    printf("========================================================\n");
+    printf(" SIMULADOR MIPS 5 ETAPAS (PIPELINED IN C)\n");
+    printf("========================================================\n\n");
 
-    // 1. Correr Suite de Pruebas
+    // 1. Correr pruebas
     run_unit_tests();
     run_system_test();
 
-    // 2. Ejecutar Programa desde Archivo TXT si se especifica o existe uno por defecto
-    const char *filename = (argc > 1) ? argv[1] : "program.txt";
-    
-    MIPS_State sim;
-    mips_init(&sim);
+    // 2. Si se pasa un archivo por argumento, ejecutarlo
+    if (argc > 1) {
+        MIPS_State cpu;
+        mips_init(&cpu);
 
-    if (load_program_from_binary_txt(&sim, filename)) {
-        printf("--- Iniciando Simulación de Archivo '%s' ---\n", filename);
-        
-        // Simular 20 ciclos de clock
-        for (int cycle = 0; cycle < 20; cycle++) {
-            stage_writeback(&sim);
-            stage_memory(&sim);
-            stage_execute(&sim);
-            stage_decode(&sim);
-            stage_fetch(&sim);
+        if (!load_program_from_binary_txt(&cpu, argv[1])) {
+            return 1;
         }
 
-        printf("\n--- Estado Final de Registros Relevantes ---\n");
-        for (int i = 0; i < 16; i++) {
-            printf("Reg $%d: %d (0x%08X)\n", i, sim.registers[i], sim.registers[i]);
+        printf("Ejecutando simulación de '%s'...\n", argv[1]);
+
+        // Ejecutar 30 ciclos para permitir que todo el pipeline termine
+        for (int cycle = 0; cycle < 30; cycle++) {
+            MIPS_State next = cpu; // Copia del estado actual
+
+            stage_writeback(&cpu, &next);
+            stage_memory(&cpu, &next);
+            stage_execute(&cpu, &next);
+            stage_decode(&cpu, &next);
+            stage_fetch(&cpu, &next);
+
+            cpu = next; // Actualización al final del ciclo de reloj
         }
+
+        // 3. Imprimir Registros
+        print_mips_state(&cpu);
     }
 
     return 0;

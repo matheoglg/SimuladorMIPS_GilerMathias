@@ -1,0 +1,20 @@
+# Compilación / Objetos / Ejecutables
+*.o
+*.out
+mips_sim
+mips_sim.exe
+
+# Archivos de depuración y dumps
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Archivos de entorno e IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs o salidas temporales
+*.log
